@@ -1,8 +1,7 @@
 <?php 
 session_start();
-include('./database.php');
+include('./connect.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,20 +46,20 @@ include('./database.php');
 
             while ($fetch_result_user = mysqli_fetch_object($result_user)) { ?>
                 <tr>
-                    <td><?= $fetch_result_user->id ?> </td>
-                    <td><?= $fetch_result_user->username ?></td>
-                    <td><?= $fetch_result_user->password ?></td>
+                    <td><?= $fetch_result_user->id_u ?> </td>
+                    <td><?= $fetch_result_user->username_u ?></td>
+                    <td><?= $fetch_result_user->password_u ?></td>
                     <td>
-                        <a href="service.php?id=<?= $fetch_result_user->id ?>">Delete</a>
+                        <a href="service.php?id=<?= $fetch_result_user->id_u ?>">Delete</a>
 
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $fetch_result_user->id ?>">
-                            Launch demo modal
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $fetch_result_user->id_u ?>">
+                            Edit
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal<?= $fetch_result_user->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal<?= $fetch_result_user->id_u ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <form action="service.php" method="post">
@@ -69,9 +68,9 @@ include('./database.php');
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <input type="text" name="username" placeholder="username" class="form-control mb-2" value="<?= $fetch_result_user->username ?>" required>
-                                            <input type="text" name="password" class="form-control mb-2" placeholder="password" value="<?= $fetch_result_user->password ?>" required>
-                                            <input type="hidden" name="id" value="<?= $fetch_result_user->id ?>">
+                                            <input type="text" name="username" placeholder="username" class="form-control mb-2" value="<?= $fetch_result_user->username_u ?>" required>
+                                            <input type="text" name="password" class="form-control mb-2" placeholder="password" value="<?= $fetch_result_user->password_u ?>" required>
+                                            <input type="hidden" name="id" value="<?= $fetch_result_user->id_u ?>">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" name="update" class="btn btn-secondary">Update</button>

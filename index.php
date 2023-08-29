@@ -14,12 +14,12 @@ if(isset($_POST['login'])) {
         $fetch_user = $resultCheck -> fetch_object();
 
         $_SESSION['id_u'] = $fetch_user->id_u;
-        if($fetch_user -> status === "member"){
+        if($fetch_user -> status === "user"){
             header('location:./home.php');
         }else{
             if($fetch_user -> status === "admin") {
         
-        header('location:./home.php');
+        header('location:./adminhome.php');
         return;
              }
     }   
