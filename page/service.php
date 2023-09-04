@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 
     mysqli_query($conn, $query);
 
-    header('location:./home.php');
+    header('location:' . $_SERVER['REQUEST_URI']);
 }
 
 
@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
 
     mysqli_query($conn, $query);
 
-    header('location:./home.php');
+    header('location:' . $_SERVER['REQUEST_URI']);
 }
 
 if (isset($_POST['update'])) {
@@ -32,5 +32,6 @@ if (isset($_POST['update'])) {
 
     mysqli_query($conn, $query);
 
-    header('location:./home.php');
+    header('location:' . $_SERVER['REQUEST_URI']);
 }
+

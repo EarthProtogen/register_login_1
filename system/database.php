@@ -81,7 +81,7 @@ class database {
         $fileExt = strtolower(end($ext));
         $fileNew = rand().".".$fileExt;
 
-        $filePath = './image/'.$fileNew;
+        $filePath = './../uploads/'.$fileNew;
 
         move_uploaded_file($file['tmp_name'],$filePath);
         return $fileNew;
@@ -89,7 +89,7 @@ class database {
 
     function secureCheck(){
         if(!isset($_SESSION['id_u'])){
-            header('location:./../../home.php');
+            header('location:./../../index.php');
             return;
         }else{
             return;
@@ -98,7 +98,7 @@ class database {
 
     function checkAdmin(){
         if($_SESSION['type'] != 'admin'){
-            header('location:./../../Index.php');
+            header('location:./../Index.php');
             return;
         }else{
             return;
